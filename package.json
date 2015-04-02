@@ -1,0 +1,23 @@
+{
+  "name": "thebluelights",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ccheever/thebluelights.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccheever/thebluelights/issues"
+  },
+  "homepage": "https://github.com/ccheever/thebluelights",
+  "dependencies": {
+    "lodash-node": "^3.1.0",
+    "radiora2": "0.0.1"
+  }
+}
