@@ -36,7 +36,7 @@ class LutronClient
       throw new Error "number or boolean required"
 
   allLights: (x) ->
-    if x isBoolean
+    if isBoolean x
       if x
         @_client.pressButton 32, 1
       else
@@ -45,7 +45,7 @@ class LutronClient
       throw new Error "boolean required"
 
   commonAreaLights: (x) ->
-    if x isBoolean
+    if isBoolean x
       if x
         @_client.pressButton 32, 3
       else
