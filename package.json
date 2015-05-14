@@ -1,8 +1,8 @@
 {
   "name": "thebluelights",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,11 +17,16 @@
   },
   "homepage": "https://github.com/ccheever/thebluelights",
   "dependencies": {
-    "co": "^4.5.2",
-    "koa": "^0.19.1",
-    "koa-logger": "^1.2.2",
-    "koa-route": "^2.4.1",
+    "babel-core": "^5.3.3",
     "lodash-node": "^3.1.0",
     "radiora2": "0.0.1"
+  },
+  "devDependencies": {
+    "@exponent/gulp-babel": "650industries/gulp-babel",
+    "gulp": "^3.8.11",
+    "gulp-changed": "^1.2.1",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-watch": "^4.2.4"
   }
 }

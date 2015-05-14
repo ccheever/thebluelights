@@ -1,0 +1,2 @@
+require('.')().charliesRoomLights(false);
+
