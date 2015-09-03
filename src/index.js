@@ -1,5 +1,5 @@
-var _ = require('lodash-node');
-var radiora2 = require('radiora2');
+let _ = require('lodash-node');
+let radiora2 = require('radiora2');
 
 class LutronClient {
   constructor(opts) {
@@ -55,7 +55,7 @@ class LutronClient {
 }
 
 module.exports = function () {
-  var _client = new LutronClient();
+  let _client = new LutronClient();
   _client.connect();
   return _client;
 }
