@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@exponent/gulp-babel": "650industries/gulp-babel",
+    "babel-runtime": "^6.26.0",
     "gulp": "^3.8.11",
     "gulp-changed": "^1.2.1",
     "gulp-plumber": "^1.0.0",
