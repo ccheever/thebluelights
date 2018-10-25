@@ -1,5 +1,5 @@
-let _ = require('lodash-node');
-let radiora2 = require('radiora2');
+let _ = require('lodash');
+let RadioRa2 = require('./radiora2');
 
 class LutronClient {
   constructor(opts) {
@@ -7,7 +7,7 @@ class LutronClient {
     this.host = opts.host || '192.168.1.201';
     this.username = opts.username || 'lutron';
     this.password = opts.password || 'integration';
-    this.client = new radiora2.RadioRa2(this.host, this.username, this.password);
+    this.client = new RadioRa2(this.host, this.username, this.password);
   }
 
   connect() {

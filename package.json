@@ -1,8 +1,8 @@
 {
   "name": "thebluelights",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,24 +10,16 @@
     "type": "git",
     "url": "https://github.com/ccheever/thebluelights.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Charlie Cheever <ccheever@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ccheever/thebluelights/issues"
   },
   "homepage": "https://github.com/ccheever/thebluelights",
   "dependencies": {
-    "babel-core": "^5.3.3",
-    "lodash-node": "^3.1.0",
-    "radiora2": "0.0.1"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
-    "@exponent/gulp-babel": "650industries/gulp-babel",
-    "babel-runtime": "^6.26.0",
-    "gulp": "^3.8.11",
-    "gulp-changed": "^1.2.1",
-    "gulp-plumber": "^1.0.0",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-watch": "^4.2.4"
+    "project-repl": "^1.5.0"
   }
 }
