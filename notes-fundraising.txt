@@ -1,0 +1,45 @@
+One command website deployment
+API Routes / Cloud functions
+Environment variables
+
+Simplified Workflow: Automates app-building processes, streamlining development and reducing manual effort.
+Cloud-based Builds: Allows continuous integration and deployment without needing local build infrastructure.
+Consistency: Ensures reproducible and reliable builds across different environments and teams.
+Ease of Distribution: Supports automatic publishing to app stores and easier distribution to testers.
+Scalability: Handles increased workloads effortlessly, reducing overhead as your team or app grows.
+
+
+
+
+
+
+----
+
+
+Show 2 years of revenue data to show a wider track record
+
+Smooth out curve on React graph
+
+CNG: Show how python, docker, etc. became standard by plugin marketplace
+
+One product slide instead of a bunch of different ones
+
+AI: As AI driven development becomes more popular the addressable market grows
+highlight velocity thing as well
+
+Funnel slide: Take out green
+
+
+Vanilla revenue slide
+Address churn
+
+Actuals for last 4 quarters + what you're doing in 2025
+
+Show cash flow efficiency
+
+what is the money gonna be used for
+
+add an ask 
+
+
+LAMP vs the new stack
