@@ -11,8 +11,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 
-// let DEFAULT_SERVER_IP = '100.106.94.95';
-let DEFAULT_SERVER_IP = '100.72.251.34';
+let DEFAULT_SERVER_IP = '100.106.94.95'; // mac mini bones in apt101 via tailscale
+// let DEFAULT_SERVER_IP = '100.72.251.34'; // macbook pro via tailscale
 const API_BASE_URL = (process.env.EXPO_PUBLIC_API_URL ?? `http://${DEFAULT_SERVER_IP}:6200`).replace(/\/$/, '');
 
 type StatePayload = {
