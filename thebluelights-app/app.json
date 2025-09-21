@@ -11,7 +11,11 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "NSLocalNetworkUsageDescription": "Allow access so we can discover and control your apartment lights on the local network."
+        "CFBundleDisplayName": "Apt 101 The Blue Lights",
+        "NSLocalNetworkUsageDescription": "Allow access so we can discover and control your apartment lights on the local network.",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoadsInLocalNetworking": true
+        }
       }
     },
     "android": {
