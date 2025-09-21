@@ -5,6 +5,13 @@ const require = createRequire(import.meta.url);
 const DEFAULT_PORT = 6200;
 const PORT = Number(process.env.PORT ?? DEFAULT_PORT);
 
+const CORS_HEADERS: Record<string, string> = {
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'GET,POST,OPTIONS',
+  'access-control-allow-headers': 'content-type, authorization',
+  'access-control-max-age': '86400',
+};
+
 interface Todo {
   id: number;
   title: string;
@@ -66,14 +73,22 @@ const loadLightsClient = (): LightsClient => {
 const todos = new Map<number, Todo>();
 let nextTodoId = 1;
 
-const json = (data: unknown, init: ResponseInit = {}): Response =>
-  new Response(JSON.stringify(data, null, 2), {
-    ...init,
-    headers: {
-      'content-type': 'application/json; charset=utf-8',
-      ...init.headers,
-    },
+const createCorsHeaders = (init?: any): Headers => {
+  const headers = new Headers(init ?? undefined);
+  Object.entries(CORS_HEADERS).forEach(([key, value]) => {
+    headers.set(key, value);
   });
+  return headers;
+};
+
+const json = (data: unknown, init: ResponseInit = {}): Response => {
+  const headers = createCorsHeaders(init.headers);
+  headers.set('content-type', 'application/json; charset=utf-8');
+  return new Response(JSON.stringify(data, null, 2), {
+    ...init,
+    headers,
+  });
+};
 
 const notFound = (): Response =>
   json(
@@ -107,6 +122,13 @@ const server = Bun.serve({
     const url = new URL(request.url);
     const { pathname } = url;
     const method = request.method.toUpperCase();
+
+    if (method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: createCorsHeaders(),
+      });
+    }
 
     if (pathname === '/') {
       return json({
@@ -186,7 +208,10 @@ const server = Bun.serve({
 
       if (method === 'DELETE') {
         todos.delete(id);
-        return new Response(null, { status: 204 });
+        return new Response(null, {
+          status: 204,
+          headers: createCorsHeaders(),
+        });
       }
 
       return json(

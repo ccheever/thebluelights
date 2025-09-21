@@ -15,8 +15,10 @@
         "NSLocalNetworkUsageDescription": "Allow access so we can discover and control your apartment lights on the local network.",
         "NSAppTransportSecurity": {
           "NSAllowsArbitraryLoadsInLocalNetworking": true
-        }
-      }
+        },
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.ccheever.thebluelightsapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -50,6 +52,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "694f78ef-4d49-4f05-890e-424f1b28a252"
+      }
     }
   }
 }
