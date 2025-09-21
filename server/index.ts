@@ -16,29 +16,51 @@ type LightsClient = {
   allLights: (value: boolean) => void;
 };
 
-type LightsFactoryModule = LightsClient | { default?: () => LightsClient } | (() => LightsClient);
+type LightsFactoryModule =
+  | LightsClient
+  | { default?: (() => LightsClient) | LightsClient }
+  | (() => LightsClient);
 
 const lights: { client: LightsClient | null } = { client: null };
 
+const hasFactoryDefault = (
+  candidate: unknown,
+): candidate is { default: () => LightsClient } =>
+  typeof candidate === 'object' &&
+  candidate !== null &&
+  'default' in candidate &&
+  typeof (candidate as { default?: unknown }).default === 'function';
+
+const isLightsClient = (candidate: unknown): candidate is LightsClient =>
+  typeof candidate === 'object' &&
+  candidate !== null &&
+  typeof (candidate as Partial<LightsClient>).charliesRoomLights === 'function' &&
+  typeof (candidate as Partial<LightsClient>).allLights === 'function';
+
 const loadLightsClient = (): LightsClient => {
-  if (lights.client) {
-    return lights.client;
+  const existing = lights.client;
+  if (existing) {
+    return existing;
   }
 
   const candidate = require('../index.js') as LightsFactoryModule;
-  const factory =
-    typeof candidate === 'function'
-      ? candidate
-      : typeof candidate === 'object' && candidate !== null && typeof candidate.default === 'function'
-        ? candidate.default
-        : null;
 
-  if (!factory) {
+  let client: LightsClient | null = null;
+
+  if (typeof candidate === 'function') {
+    client = candidate();
+  } else if (hasFactoryDefault(candidate)) {
+    client = candidate.default();
+  } else if (isLightsClient(candidate)) {
+    client = candidate;
+  }
+
+  if (!client) {
     throw new Error('Unable to resolve lights controller factory from parent project.');
   }
 
-  lights.client = factory();
-  return lights.client;
+  lights.client = client;
+  return client;
 };
 
 const todos = new Map<number, Todo>();
