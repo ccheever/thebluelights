@@ -80,6 +80,7 @@ const normalizeBooleanState = (value: unknown): boolean | null => {
 
 const server = Bun.serve({
   port: PORT,
+  hostname: '0.0.0.0',
   async fetch(request) {
     const url = new URL(request.url);
     const { pathname } = url;
