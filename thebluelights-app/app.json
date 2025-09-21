@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "thebluelights-app",
+    "name": "Apt 101 The Blue Lights",
     "slug": "thebluelights-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,10 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocalNetworkUsageDescription": "Allow access so we can discover and control your apartment lights on the local network."
+      }
     },
     "android": {
       "adaptiveIcon": {
